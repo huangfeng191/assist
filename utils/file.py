@@ -52,6 +52,5 @@ def getFiles (srcPath,postfix=None,isPath=False,local=None):
 
 
 def get_file_length(filename):
-    clip = VideoFileClip(filename)
-
-    return clip.duration
+    with VideoFileClip(filename) as clip:
+       return clip.duration

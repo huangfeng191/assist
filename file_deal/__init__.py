@@ -18,8 +18,8 @@ def clear_filename(prefix="11",path="./"):
 
 def get_duration():
     rules=[
-        {"tp":"num","st":2,"end":20}
+        {"tp":"num","st":20,"end":35}
     ]
-    fs=FilesInfo(path=u"F:\\annie\\尚硅谷\\Spring注解驱动教程(雷丰阳源码级讲解)")
+    fs=FilesInfo(path=u"E:\\annie\\spring security")
     fs.to_limit_files(rules)
     print(fs.get_durations())
