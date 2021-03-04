@@ -1,6 +1,7 @@
 
 # -*- coding: utf-8 -*-
 from file_deal.fine_name import DealName
+from file_deal.fine_info import FilesInfo
 
 
 def clear_filename(prefix="11",path="./"):
@@ -13,3 +14,12 @@ def clear_filename(prefix="11",path="./"):
     a = DealName(prefix=prefix,path=path)
     a.replace_with_str()
     print ("OK")
+
+
+def get_duration():
+    rules=[
+        {"tp":"num","st":2,"end":20}
+    ]
+    fs=FilesInfo(path=u"F:\\annie\\尚硅谷\\Spring注解驱动教程(雷丰阳源码级讲解)")
+    fs.to_limit_files(rules)
+    print(fs.get_durations())

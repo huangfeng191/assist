@@ -11,8 +11,12 @@ class DealName:
     def _get_with_prefix(self):
         files=getFiles(self.path, isPath=True)
         if self.prefix:
-            files = filter(lambda x:self.prefix in x.decode("gbk").encode("utf-8") , files)
-            files = map(lambda x: x.decode("gbk"), files)
+            try:
+                files = filter(lambda x:self.prefix in x.decode("gbk").encode("utf-8") , files)
+                files = map(lambda x: x.decode("gbk"), files)
+            except:
+                files = filter(lambda x: self.prefix in x.decode("utf-8").encode("utf-8"), files)
+                files = map(lambda x: x.decode("utf-8"), files)
         return files
     def file_replace(self,f,str=None):
         if not str:

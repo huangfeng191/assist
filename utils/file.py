@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json,os
 from utils import get_package_path
+from moviepy.editor import VideoFileClip
 def get_file_json(file):
     with open(file) as f:
         a=f.read()
@@ -20,7 +21,7 @@ def save_file(file_path,content):
 
 
 
-def getFiles (srcPath,postfix=None,isPath=False):
+def getFiles (srcPath,postfix=None,isPath=False,local=None):
     '''
     :param 根据路径获取文件，不包括目录:
     :param postfix:  .md
@@ -28,7 +29,7 @@ def getFiles (srcPath,postfix=None,isPath=False):
     :return:
     '''
 
-    if "local" == "local":
+    if local == "local":
         srcPath= get_package_path(srcPath)
 
     aFiles = [x for x in os.listdir(srcPath) if
@@ -47,3 +48,10 @@ def getFiles (srcPath,postfix=None,isPath=False):
         aFiles=map(f,aFiles)
 
     return aFiles
+
+
+
+def get_file_length(filename):
+    clip = VideoFileClip(filename)
+
+    return clip.duration
