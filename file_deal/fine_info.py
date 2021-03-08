@@ -2,7 +2,7 @@
 from utils.file import get_file_length,getFiles
 import re
 import os
-
+import itertools
 class FilesInfo:
 
     def __init__(self,path=None):
@@ -34,10 +34,12 @@ class FilesInfo:
 
     def get_durations(self):
         num=0
+        i=itertools.count()
         for f in self.files:
             num+=get_file_length(f)
+            next(i)
 
-        return f" {round(num/60)} (minutes)"
+        return f" {round(num/60)} (minutes),  {i} records"
 
     def to_limit_files(self,rules):
         for r in rules:

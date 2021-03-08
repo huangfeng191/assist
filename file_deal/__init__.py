@@ -16,10 +16,13 @@ def clear_filename(prefix="11",path="./"):
     print ("OK")
 
 
-def get_duration(path):
+def get_duration(path,rule=None):
+
     rules=[
-        {"tp":"num","st":20,"end":35}
+        # {"tp":"num","st":20,"end":35}
     ]
+    if rule:
+        rules.append(rule)
     fs=FilesInfo(path)
     fs.to_limit_files(rules)
     print(fs.get_durations())
