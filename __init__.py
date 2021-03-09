@@ -8,9 +8,9 @@ from file_deal  import clear_filename,get_duration,clear_freestyle
 from utils import yaml_loader
 
 
-def yaml_deal():
+def yaml_deal(plan=None):
     orders = yaml_loader("order.yaml")
-    return orders.get(orders.get("plan"))
+    return orders.get(plan or orders.get("plan"))
 
 
 if __name__ == '__main__':
@@ -38,7 +38,7 @@ if __name__ == '__main__':
             params[k]=v
 
     if command=="yaml":
-        params=yaml_deal()
+        params=yaml_deal(params.get("plan"))
         command=params.get("command")
 
 

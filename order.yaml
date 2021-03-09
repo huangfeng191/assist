@@ -5,3 +5,7 @@ get_duration_mybatis:
   st: 20
   end: 30
 
+rename_webpack:
+  command: "rename"
+  path: "E:/annie/webpack"
+  prefix: "尚硅谷最新版Webpack5实战教程(从入门到精通)"
