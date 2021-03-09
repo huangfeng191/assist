@@ -39,7 +39,7 @@ class FilesInfo:
             num+=get_file_length(f)
             next(i)
 
-        return f" {round(num/60)} (minutes),  {i} records"
+        return f" {round(num/60)} (minutes),  {i} records,{round(num/60/60,2)} (hours)"
 
     def to_limit_files(self,rules):
         for r in rules:

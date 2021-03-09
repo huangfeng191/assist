@@ -1,7 +1,7 @@
 
 # -*- coding: utf-8 -*-
-from file_deal.fine_name import DealName
-from file_deal.fine_info import FilesInfo
+from file_deal.file_name import DealName
+from file_deal.file_info import FilesInfo
 
 
 def clear_filename(prefix="11",path="./"):
