@@ -3,7 +3,7 @@ import sys
 from importlib import reload
 reload(sys)
 # sys.setdefaultencoding('utf8')
-from file_deal  import clear_filename,get_duration
+from file_deal  import clear_filename,get_duration,clear_freestyle
 
 if __name__ == '__main__':
     # clear_filename(path="F:\cs",prefix="3")
@@ -22,6 +22,13 @@ if __name__ == '__main__':
         if i==1:
             first_cmd=sys.argv[i]
         if i==2:
+            if sys.argv[i]=="rename":
+
+                clear_filename(path=first_cmd, prefix=u"尚硅谷MyBatis实战教程全套完整版(初学者零基础从入门到精通,好评如潮,资料齐全) ")
+                break;
+            if sys.argv[i]=="clear_freestyle":
+                clear_freestyle(path=first_cmd, prefix=u"P")
+                break
             rule={"st":int(sys.argv[i]),"tp":"num"}
         if i==3:
             rule["end"]=int(sys.argv[i])
