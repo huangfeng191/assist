@@ -17,24 +17,29 @@ if __name__ == '__main__':
     # print(first_cmd)
 
     # path st end
-    rule=None
-    for  i in range(0,len(sys.argv)):
+
+    # command param1 param2 param3
+
+    command=None
+    params={}
+    for i in range(0, len(sys.argv)):
         if i==1:
-            first_cmd=sys.argv[i]
-        if i==2:
-            if sys.argv[i]=="rename":
+            command=sys.argv[i]
+        elif i>1:
+            k,v=sys.argv[i].split("=")
+            params[k]=v
+    if command=="get_duration":
+        rule=None
+        if params.get("st") or params.get("end"):
+            rule={
+                "st":int(params.get("st")),
+                "end":int(params.get("end")),
+                "tp":params.get("tp","num")
+            }
+        get_duration(path=params.get("path"),rule=rule)
+    elif command=="rename":
+        clear_filename(path=params.get("path"), prefix=params.get("prefix"))
+    elif command=="freestyle":
+        clear_freestyle(path=params.get("path"), prefix=params.get("prefix"),separator=params.get("separator"," "))
 
-                clear_filename(path=first_cmd, prefix=u"尚硅谷MyBatis实战教程全套完整版(初学者零基础从入门到精通,好评如潮,资料齐全) ")
-                break;
-            if sys.argv[i]=="clear_freestyle":
-                clear_freestyle(path=first_cmd, prefix=u"P")
-                break
-            rule={"st":int(sys.argv[i]),"tp":"num"}
-        if i==3:
-            rule["end"]=int(sys.argv[i])
-
-
-
-    # get_duration(path=first_cmd if first_cmd else u"E:\\annie\\spring security")
-    get_duration(path=first_cmd if first_cmd else u"E:/annie/mybatis" ,rule=rule)
-
+    pass

@@ -39,10 +39,10 @@ def clear_freestyle(prefix="11",path="./",separator=" "):
     for f in files:
         pathname = os.path.dirname(f)
         basename=os.path.basename(f)
-        deal=basename.split(separator)[0]
-        after=basename.split(separator)[1]
+        deal=basename.strip().split(separator)[0]
+        after=basename.strip().split(separator)[1:]
 
-        basename=after
+        basename=separator.join(after)
 
 
         print(os.path.join(pathname, basename)) # utf-8 与 unicode 还是有差别的
