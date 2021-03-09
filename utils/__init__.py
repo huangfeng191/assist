@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import yaml
 import os
 def get_package_path(filepath):
    '''
@@ -11,6 +11,11 @@ def get_package_path(filepath):
    return os.path.join(file_catalog,"../../",filepath)
    
 
+
+def yaml_loader(filepath):
+   with open(os.path.join(filepath) , encoding='utf8') as file:
+      config = yaml.load(file, Loader=yaml.FullLoader)
+      return config
 
 
 

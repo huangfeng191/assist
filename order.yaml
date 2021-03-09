@@ -1,0 +1,7 @@
+plan: "get_duration_mybatis"
+get_duration_mybatis:
+  command: "get_duration"
+  path: "E:/annie/mybatis"
+  st: 20
+  end: 30
+

@@ -5,6 +5,14 @@ reload(sys)
 # sys.setdefaultencoding('utf8')
 from file_deal  import clear_filename,get_duration,clear_freestyle
 
+from utils import yaml_loader
+
+
+def yaml_deal():
+    orders = yaml_loader("order.yaml")
+    return orders.get(orders.get("plan"))
+
+
 if __name__ == '__main__':
     # clear_filename(path="F:\cs",prefix="3")
     # clear_filename(path="F:/annie/java_basic", prefix=u"教程-java入门必备-适合初学者的全套完整版教程")
@@ -28,12 +36,21 @@ if __name__ == '__main__':
         elif i>1:
             k,v=sys.argv[i].split("=")
             params[k]=v
+
+    if command=="yaml":
+        params=yaml_deal()
+        command=params.get("command")
+
+
+
+
+
     if command=="get_duration":
         rule=None
         if params.get("st") or params.get("end"):
             rule={
-                "st":int(params.get("st")),
-                "end":int(params.get("end")),
+                "st":int(params.get("st")) if params.get("st") else None,
+                "end":int(params.get("end")) if params.get("end") else None,
                 "tp":params.get("tp","num")
             }
         get_duration(path=params.get("path"),rule=rule)
@@ -42,4 +59,3 @@ if __name__ == '__main__':
     elif command=="freestyle":
         clear_freestyle(path=params.get("path"), prefix=params.get("prefix"),separator=params.get("separator"," "))
 
-    pass

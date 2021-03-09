@@ -26,7 +26,7 @@ class FilesInfo:
                 if end:
                     if int(n)>end:
                         return False
-                    return True
+                return True
             return False
             # 包含数字 and >=st <=end
 
