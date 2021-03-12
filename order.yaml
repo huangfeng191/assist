@@ -1,4 +1,4 @@
-plan: "get_duration_mybatis"
+plan: "rename_mybatis"
 get_duration_mybatis:
   command: "get_duration"
   path: "E:/annie/mybatis"
@@ -7,5 +7,14 @@ get_duration_mybatis:
 
 rename_webpack:
   command: "rename"
-  path: "E:/annie/webpack"
-  prefix: "尚硅谷最新版Webpack5实战教程(从入门到精通)"
+  path: "F:/annie/尚硅谷/webpack"
+  prefix: "尚硅谷前端Webpack5教程"
+rename_mybatis:
+  command: "rename"
+  path: "F:/annie/尚硅谷/mybatis"
+  prefix: "尚硅谷_MyBatis_"
+
+freestyle_mybatis:
+  command: "freestyle"
+  path: "F:/annie/尚硅谷/mybatis"
+  prefix: "P"
